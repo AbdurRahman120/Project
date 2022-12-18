@@ -1,0 +1,116 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProductDaoService WSDL service -->
+
+  <service name="ProductDao" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://main"/>
+      <parameter name="wsdlServiceElement" value="ProductDaoService"/>
+      <parameter name="schemaQualified" value="http://main"/>
+      <parameter name="wsdlServicePort" value="ProductDao"/>
+      <parameter name="className" value="main.ProductDaoSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ProductDao"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getSingleProduct" qname="operNS:getSingleProduct" xmlns:operNS="http://main" returnQName="retNS:getSingleProductReturn" xmlns:retNS="http://main" returnType="rtns:Product" xmlns:rtns="http://main" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getTotalCartPrice" qname="operNS:getTotalCartPrice" xmlns:operNS="http://main" returnQName="retNS:getTotalCartPriceReturn" xmlns:retNS="http://main" returnType="rtns:double" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:cartList" xmlns:pns="http://main" type="tns:ArrayOf_xsd_anyType" xmlns:tns="http://main" itemQName="itns:item" xmlns:itns="http://main"/>
+      </operation>
+      <operation name="getAllProducts" qname="operNS:getAllProducts" xmlns:operNS="http://main" returnQName="retNS:getAllProductsReturn" xmlns:retNS="http://main" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://main" returnItemQName="tns:item" xmlns:tns="http://main" soapAction="" >
+      </operation>
+      <operation name="getCartProducts" qname="operNS:getCartProducts" xmlns:operNS="http://main" returnQName="retNS:getCartProductsReturn" xmlns:retNS="http://main" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://main" returnItemQName="tns:item" xmlns:tns="http://main" soapAction="" >
+        <parameter qname="pns:cartList" xmlns:pns="http://main" type="tns:ArrayOf_xsd_anyType" xmlns:tns="http://main" itemQName="itns:item" xmlns:itns="http://main"/>
+      </operation>
+      <parameter name="allowedMethods" value="getCartProducts getAllProducts getTotalCartPrice getSingleProduct"/>
+
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getTotalCartPrice"
+        type="java:main.GetTotalCartPrice"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getTotalCartPriceResponse"
+        type="java:main.GetTotalCartPriceResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getAllProductsResponse"
+        type="java:main.GetAllProductsResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getSingleProduct"
+        type="java:main.GetSingleProduct"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getCartProducts"
+        type="java:main.GetCartProducts"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getCartProductsResponse"
+        type="java:main.GetCartProductsResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getAllProducts"
+        type="java:main.GetAllProducts"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:>getSingleProductResponse"
+        type="java:main.GetSingleProductResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://main"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://main"
+        qname="ns:Product"
+        type="java:main.Product"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

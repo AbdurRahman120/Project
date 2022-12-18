@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertOrder">
+    <complexType>
+     <sequence>
+      <element name="model" type="impl:Order"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Product">
+    <sequence>
+     <element name="category" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="image" nillable="true" type="xsd:string"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="price" nillable="true" type="xsd:double"/>
+    </sequence>
+   </complexType>
+   <complexType name="Order">
+    <complexContent>
+     <extension base="impl:Product">
+      <sequence>
+       <element name="date" nillable="true" type="xsd:string"/>
+       <element name="orderId" type="xsd:int"/>
+       <element name="qunatity" type="xsd:int"/>
+       <element name="uid" type="xsd:int"/>
+      </sequence>
+     </extension>
+    </complexContent>
+   </complexType>
+   <element name="insertOrderResponse">
+    <complexType>
+     <sequence>
+      <element name="insertOrderReturn" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userOrders">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userOrdersResponse">
+    <complexType>
+     <sequence>
+      <element name="userOrdersReturn" type="impl:ArrayOf_xsd_anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="cancelOrder">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="cancelOrderResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="cancelOrderRequest">
+
+      <wsdl:part element="impl:cancelOrder" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="cancelOrderResponse">
+
+      <wsdl:part element="impl:cancelOrderResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertOrderResponse">
+
+      <wsdl:part element="impl:insertOrderResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="userOrdersRequest">
+
+      <wsdl:part element="impl:userOrders" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertOrderRequest">
+
+      <wsdl:part element="impl:insertOrder" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="userOrdersResponse">
+
+      <wsdl:part element="impl:userOrdersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="OrderDao">
+
+      <wsdl:operation name="insertOrder">
+
+         <wsdl:input message="impl:insertOrderRequest" name="insertOrderRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertOrderResponse" name="insertOrderResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userOrders">
+
+         <wsdl:input message="impl:userOrdersRequest" name="userOrdersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:userOrdersResponse" name="userOrdersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cancelOrder">
+
+         <wsdl:input message="impl:cancelOrderRequest" name="cancelOrderRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:cancelOrderResponse" name="cancelOrderResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="OrderDaoSoapBinding" type="impl:OrderDao">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertOrder">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertOrderRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertOrderResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userOrders">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="userOrdersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="userOrdersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="cancelOrder">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="cancelOrderRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="cancelOrderResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="OrderDaoService">
+
+      <wsdl:port binding="impl:OrderDaoSoapBinding" name="OrderDao">
+
+         <wsdlsoap:address location="http://localhost:8080/shopping_cart/services/OrderDao"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
