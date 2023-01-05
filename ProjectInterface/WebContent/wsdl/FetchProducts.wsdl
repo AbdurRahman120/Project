@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getproductInfo">
+    <complexType/>
+   </element>
+   <element name="getproductInfoResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getproductInfoReturn" type="impl:Products"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Products">
+    <sequence>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="price" nillable="true" type="xsd:double"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getproductInfoResponse">
+
+      <wsdl:part element="impl:getproductInfoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getproductInfoRequest">
+
+      <wsdl:part element="impl:getproductInfo" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="FetchProducts">
+
+      <wsdl:operation name="getproductInfo">
+
+         <wsdl:input message="impl:getproductInfoRequest" name="getproductInfoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getproductInfoResponse" name="getproductInfoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FetchProductsSoapBinding" type="impl:FetchProducts">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getproductInfo">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getproductInfoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getproductInfoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FetchProductsService">
+
+      <wsdl:port binding="impl:FetchProductsSoapBinding" name="FetchProducts">
+
+         <wsdlsoap:address location="http://localhost:8080/ProjectWebService/services/FetchProducts"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
