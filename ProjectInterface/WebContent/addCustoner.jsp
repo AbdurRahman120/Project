@@ -23,6 +23,9 @@
 <label>Gender</label>
 <input name = "Gender" type = "text"/>
 <br>
+<label>Nationality</label>
+<input name = "Nationality" type = "text"/>
+<br>
 <button type = "submit">Add Customer</button>
 </form>
 </body>

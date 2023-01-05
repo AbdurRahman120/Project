@@ -44,10 +44,10 @@ public class AddCustomerProxy implements main.AddCustomer {
     return addCustomer;
   }
   
-  public java.lang.String addCustomerInfo(java.lang.String name, java.lang.String phoneNumber, java.lang.String CNIC, java.lang.String email, java.lang.String gender) throws java.rmi.RemoteException{
+  public java.lang.String addCustomerInfo(java.lang.String name, java.lang.String phoneNumber, java.lang.String CNIC, java.lang.String email, java.lang.String gender, java.lang.String nationality) throws java.rmi.RemoteException{
     if (addCustomer == null)
       _initAddCustomerProxy();
-    return addCustomer.addCustomerInfo(name, phoneNumber, CNIC, email, gender);
+    return addCustomer.addCustomerInfo(name, phoneNumber, CNIC, email, gender, nationality);
   }
   
   

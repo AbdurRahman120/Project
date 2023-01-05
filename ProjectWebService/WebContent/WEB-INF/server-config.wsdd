@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -41,11 +41,11 @@
    <ns2:parameter qname="ns1:ListPrice" type="xsd:int"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="addProductInfo"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="AddProduct"/>
-  <ns1:parameter name="className" value="main.AddProduct"/>
-  <ns1:parameter name="wsdlServicePort" value="AddProduct"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://main"/>
+  <ns1:parameter name="wsdlServicePort" value="AddProduct"/>
+  <ns1:parameter name="className" value="main.AddProduct"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="AddProductService"/>
  </ns1:service>
@@ -62,11 +62,11 @@
    <ns1:parameter qname="ns2:ListPrice" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="addProductInfo"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="AddOrder"/>
-  <ns1:parameter name="className" value="main.AddOrder"/>
-  <ns1:parameter name="wsdlServicePort" value="AddOrder"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://main"/>
+  <ns1:parameter name="wsdlServicePort" value="AddOrder"/>
+  <ns1:parameter name="className" value="main.AddOrder"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="AddOrderService"/>
  </ns1:service>
@@ -79,11 +79,11 @@
    <ns1:parameter qname="ns3:productid" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getAllProducts"/>
-  <ns1:parameter name="wsdlPortType" value="FetchNameOfProduct"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://main"/>
-  <ns1:parameter name="wsdlServicePort" value="FetchNameOfProduct"/>
+  <ns1:parameter name="wsdlPortType" value="FetchNameOfProduct"/>
   <ns1:parameter name="className" value="main.FetchNameOfProduct"/>
+  <ns1:parameter name="wsdlServicePort" value="FetchNameOfProduct"/>
+  <ns1:parameter name="schemaQualified" value="http://main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="FetchNameOfProductService"/>
  </ns1:service>
@@ -92,11 +92,11 @@
    <ns1:parameter qname="ns4:Name" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getOrderInfo"/>
-  <ns1:parameter name="wsdlPortType" value="Pinformation"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://main"/>
-  <ns1:parameter name="wsdlServicePort" value="Pinformation"/>
+  <ns1:parameter name="wsdlPortType" value="Pinformation"/>
   <ns1:parameter name="className" value="main.Pinformation"/>
+  <ns1:parameter name="wsdlServicePort" value="Pinformation"/>
+  <ns1:parameter name="schemaQualified" value="http://main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="PinformationService"/>
  </ns1:service>
@@ -107,6 +107,7 @@
    <ns1:parameter qname="ns5:CNIC" type="xsd:string"/>
    <ns1:parameter qname="ns5:Email" type="xsd:string"/>
    <ns1:parameter qname="ns5:Gender" type="xsd:string"/>
+   <ns1:parameter qname="ns5:nationality" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="addCustomerInfo"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -120,11 +121,11 @@
  <ns1:service name="FetchProducts" provider="java:RPC" style="wrapped" use="literal">
   <ns1:operation name="getproductInfo" qname="ns6:getproductInfo" returnQName="ns6:getproductInfoReturn" returnType="ns6:Products" soapAction="" xmlns:ns6="http://main"/>
   <ns1:parameter name="allowedMethods" value="getproductInfo"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="FetchProducts"/>
-  <ns1:parameter name="className" value="main.FetchProducts"/>
-  <ns1:parameter name="wsdlServicePort" value="FetchProducts"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://main"/>
+  <ns1:parameter name="wsdlServicePort" value="FetchProducts"/>
+  <ns1:parameter name="className" value="main.FetchProducts"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="FetchProductsService"/>
   <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:Products" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:main.Products" xmlns:ns7="http://main"/>

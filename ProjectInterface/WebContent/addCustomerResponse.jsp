@@ -15,7 +15,8 @@ String phoneno=request.getParameter("PhoneNumber");
 String Cnic=request.getParameter("CNIC");
 String email=request.getParameter("Email");
 String gender = request.getParameter("Gender");
-out.println(ac.addCustomerInfo(name2, phoneno, Cnic, email, gender));
+String nationality = request.getParameter("Nationality");
+out.println(ac.addCustomerInfo(name2, phoneno, Cnic, email, gender, nationality));
 %>
 </body>
 </html>

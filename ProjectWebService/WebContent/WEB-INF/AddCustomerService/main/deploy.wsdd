@@ -16,6 +16,7 @@
         <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:CNIC" type="tns:string"/>
         <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Email" type="tns:string"/>
         <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Gender" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nationality" type="tns:string"/>
       </operation>
       <parameter name="allowedMethods" value="addCustomerInfo"/>
 

@@ -35,6 +35,8 @@ public class AddCustomerSoapBindingStub extends org.apache.axis.client.Stub impl
         oper.addParameter(param);
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://main", "Gender"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://main", "nationality"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         oper.setReturnClass(java.lang.String.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://main", "addCustomerInfoReturn"));
@@ -95,7 +97,7 @@ public class AddCustomerSoapBindingStub extends org.apache.axis.client.Stub impl
         }
     }
 
-    public java.lang.String addCustomerInfo(java.lang.String name, java.lang.String phoneNumber, java.lang.String CNIC, java.lang.String email, java.lang.String gender) throws java.rmi.RemoteException {
+    public java.lang.String addCustomerInfo(java.lang.String name, java.lang.String phoneNumber, java.lang.String CNIC, java.lang.String email, java.lang.String gender, java.lang.String nationality) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -111,7 +113,7 @@ public class AddCustomerSoapBindingStub extends org.apache.axis.client.Stub impl
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {name, phoneNumber, CNIC, email, gender});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {name, phoneNumber, CNIC, email, gender, nationality});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
